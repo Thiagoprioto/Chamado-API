@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="Camados_Domain/Camados_Domain.csproj" />
+    <Project Path="Chamados_Api/Chamados_Api.csproj" />
+    <Project Path="Chamados_Application/Chamados_Application.csproj" />
+    <Project Path="Chamados_infrastructure/Chamados_infrastructure.csproj" />
+  </Folder>
+</Solution>
