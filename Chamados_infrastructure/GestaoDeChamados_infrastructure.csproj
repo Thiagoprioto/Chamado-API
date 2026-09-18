@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Camados_Domain\GestaoDeChamados_Domain.csproj" />
+    <ProjectReference Include="..\Chamados_Application\GestaoDeChamados_Application.csproj" />
+  </ItemGroup>
+
 </Project>
