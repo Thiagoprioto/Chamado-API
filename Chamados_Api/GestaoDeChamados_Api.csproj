@@ -10,4 +10,10 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Camados_Domain\GestaoDeChamados_Domain.csproj" />
+    <ProjectReference Include="..\Chamados_Application\GestaoDeChamados_Application.csproj" />
+    <ProjectReference Include="..\Chamados_infrastructure\GestaoDeChamados_infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

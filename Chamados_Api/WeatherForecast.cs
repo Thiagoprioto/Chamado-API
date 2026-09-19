@@ -1,4 +1,4 @@
-namespace Chamados_Api
+namespace GestaoDeChamados_Api
 {
     public class WeatherForecast
     {
