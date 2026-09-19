@@ -16,10 +16,11 @@
             Password = password;
         }
 
-        public void UpdateProfile(string name, string email)
+        public void UpdateProfile(string name, string email, string password)
         {
             Name = name;
             Email = email;
+            Password = password;
             UpdatedAt = DateTime.UtcNow;
         }
 

@@ -3,9 +3,10 @@
 
 namespace GestaoDeChamados_Domain.Interface
 {
-    public interface IUser
+    public interface IUserRepository
     {
-        Task<User> CreateUserAsync(User user);
+        Task<User> AddUserAsync(User user);
+        Task<User> GetUserByIdAsync(Guid id);
         Task<User> UpdateUserAsync(User user);
         Task<User> DeleteUserAsync(Guid id);
     }
