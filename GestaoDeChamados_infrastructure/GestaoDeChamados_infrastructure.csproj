@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Camados_Domain\GestaoDeChamados_Domain.csproj" />
-    <ProjectReference Include="..\Chamados_Application\GestaoDeChamados_Application.csproj" />
+    <ProjectReference Include="..\GestaoDeChamados_Application\GestaoDeChamados_Application.csproj" />
+    <ProjectReference Include="..\GestaoDeChamados_Domain\GestaoDeChamados_Domain.csproj" />
   </ItemGroup>
 
 </Project>
