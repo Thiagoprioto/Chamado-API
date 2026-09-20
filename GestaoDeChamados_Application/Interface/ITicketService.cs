@@ -7,7 +7,7 @@ namespace GestaoDeChamados_Application.Interface
         Task<TicketResponseDto> GetTicketByIdAsync(Guid id);
         Task<IEnumerable<TicketResponseDto>> GetAllTicketsAsync();
         Task<TicketResponseDto> CreateTicketAsync(CreateTicketDto ticket);
-        Task<TicketResponseDto> UpdateTicketAsync(CreateTicketDto ticket);
+        Task<TicketResponseDto> UpdateTicketAsync(Guid id, UpdateTicketDto ticket);
         Task DeleteTicketAsync(Guid id);
     }
 }

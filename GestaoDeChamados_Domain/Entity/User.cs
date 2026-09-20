@@ -13,11 +13,10 @@
             Password = password;
         }
 
-        public void UpdateProfile(string name, string email, string password)
+        public void UpdateProfile(string name, string email)
         {
             Name = name;
             Email = email;
-            Password = password;
             UpdateTimestamp();
         }
 

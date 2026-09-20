@@ -17,11 +17,10 @@ namespace GestaoDeChamados_Domain.Entity
             Status = TicketsStatus.Open;
         }
 
-        public void UpdateDetails(string title, string description, PriorityTicketStatus priority)
+        public void UpdateDetails(string title, string description)
         {
             Title = title;
             Description = description;
-            Priority = priority;
             UpdateTimestamp();
         }
 

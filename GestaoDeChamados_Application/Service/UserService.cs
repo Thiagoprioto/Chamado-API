@@ -1,4 +1,5 @@
 ﻿using GestaoDeChamados_Application.DTO.User;
+using GestaoDeChamados_Application.Exceptions;
 using GestaoDeChamados_Application.Interface;
 using GestaoDeChamados_Domain.Entity;
 using GestaoDeChamados_Domain.Interface;
@@ -35,7 +36,7 @@ namespace GestaoDeChamados_Application.Service
 
             if (deletedUser == null)
             {
-                throw new Exception("User not found");
+                throw new NotFoundException("Usuario não encontrado");
             }
 
             await _userRepository.DeleteUserAsync(deletedUser.Id);
@@ -47,10 +48,11 @@ namespace GestaoDeChamados_Application.Service
 
             if (existingUser == null)
             {
-                throw new Exception("User not found");
+                throw new NotFoundException("Usuario não encontrado");
             }
 
-            existingUser.UpdateProfile(user.Name, user.Email, user.Password);
+            existingUser.UpdateProfile(user.Name, user.Email);
+            existingUser.ChangePassword(user.Password);
 
             await _userRepository.UpdateUserAsync(existingUser);
 
