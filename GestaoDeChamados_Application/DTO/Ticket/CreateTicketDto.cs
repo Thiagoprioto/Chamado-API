@@ -1,5 +1,4 @@
 ﻿using GestaoDeChamados_Domain.Enum;
-using System.Reflection.Metadata;
 
 namespace GestaoDeChamados_Application.DTO.Ticket
 {

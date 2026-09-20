@@ -1,9 +1,9 @@
 <Solution>
   <Folder Name="/src/">
-    <Project Path="Camados_Domain/GestaoDeChamados_Domain.csproj" />
-    <Project Path="Chamados_Api/GestaoDeChamados_Api.csproj" />
-    <Project Path="Chamados_Application/GestaoDeChamados_Application.csproj" />
-    <Project Path="Chamados_infrastructure/GestaoDeChamados_infrastructure.csproj" />
+    <Project Path="GestaoDeChamados_Api/GestaoDeChamados_Api.csproj" />
+    <Project Path="GestaoDeChamados_Application/GestaoDeChamados_Application.csproj" />
+    <Project Path="GestaoDeChamados_Domain/GestaoDeChamados_Domain.csproj" />
+    <Project Path="GestaoDeChamados_infrastructure/GestaoDeChamados_infrastructure.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="GestãoDeChamados_Tests/GestaoDeChamados_Tests.csproj" Id="dca71de4-bcd0-4595-8b65-3aa346a1ebd5" />
