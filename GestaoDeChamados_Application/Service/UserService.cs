@@ -39,7 +39,25 @@ namespace GestaoDeChamados_Application.Service
                 throw new NotFoundException("Usuario não encontrado");
             }
 
-            await _userRepository.DeleteUserAsync(deletedUser.Id);
+            await _userRepository.DeleteUserAsync(deletedUser);
+        }
+
+        public async Task<UserResponseDto> GetUserByIdAsync(Guid id)
+        {
+            var searchById = await _userRepository.GetUserByIdAsync(id);
+
+            if (searchById == null)
+            {
+                throw new NotFoundException("Usuario não encontrado");
+            }
+
+            return new UserResponseDto(
+                searchById.Id,
+                searchById.Name,
+                searchById.Email,
+                searchById.CreatedAt,
+                searchById.UpdatedAt
+            );
         }
 
         public async Task<UserResponseDto> UpdateUserAsync(Guid id, UpdateUserDto user)

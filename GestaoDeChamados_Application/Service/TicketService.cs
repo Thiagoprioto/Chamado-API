@@ -1,5 +1,4 @@
-﻿
-using GestaoDeChamados_Application.DTO.Ticket;
+﻿using GestaoDeChamados_Application.DTO.Ticket;
 using GestaoDeChamados_Application.Exceptions;
 using GestaoDeChamados_Application.Interface;
 using GestaoDeChamados_Domain.Entity;
@@ -19,7 +18,7 @@ namespace GestaoDeChamados_Application.Service
         public async Task<TicketResponseDto> CreateTicketAsync(CreateTicketDto dto)
         {
             var ticket = new Ticket(dto.Title, dto.Description, dto.Priority);
-            await _ticketRepository.CreateTicketAsync(ticket);
+            await _ticketRepository.AddTicketAsync(ticket);
             return new TicketResponseDto(
                 ticket.Id, 
                 ticket.Title, 
@@ -39,7 +38,7 @@ namespace GestaoDeChamados_Application.Service
                 throw new NotFoundException("Chamado não encontrado");
             }
 
-            await _ticketRepository.DeleteTicketAsync(deletedTicket.Id);
+            await _ticketRepository.DeleteTicketAsync(deletedTicket);
         }
 
         public async Task<IEnumerable<TicketResponseDto>> GetAllTicketsAsync()
