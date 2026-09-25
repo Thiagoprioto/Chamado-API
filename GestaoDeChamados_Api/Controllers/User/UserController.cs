@@ -3,7 +3,7 @@ using GestaoDeChamados_Application.DTO.User;
 using GestaoDeChamados_Application.Interface;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GestaoDeChamados_Api.Controllers
+namespace GestaoDeChamados_Api.Controllers.User
 {
     [ApiController]
     [Route("api/[controller]")]

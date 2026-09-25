@@ -2,6 +2,7 @@
 using GestaoDeChamados_Application.Exceptions;
 using GestaoDeChamados_Application.Interface;
 using GestaoDeChamados_Domain.Entity;
+using GestaoDeChamados_Domain.Enum;
 using GestaoDeChamados_Domain.Interface;
 
 namespace GestaoDeChamados_Application.Service
@@ -95,6 +96,20 @@ namespace GestaoDeChamados_Application.Service
                 existingTicket.CreatedAt,
                 existingTicket.UpdatedAt
             );
+        }
+
+        public async Task UpdateTicketStatusAsync(Guid id, TicketsStatus status)
+        {
+            var ticket = await _ticketRepository.GetTicketByIdAsync(id);
+
+            if (ticket == null)
+            {
+                throw new KeyNotFoundException($"Ticket com o ID {id} não foi encontrado.");
+            }
+
+            ticket.UpdateStatus(status);
+
+            await _ticketRepository.UpdateTicketAsync(ticket);
         }
     }
 }
