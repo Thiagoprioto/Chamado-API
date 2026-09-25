@@ -42,6 +42,20 @@ namespace GestaoDeChamados_Application.Service
             await _userRepository.DeleteUserAsync(deletedUser);
         }
 
+        public async Task<IEnumerable<UserResponseDto>> GetAllUserAsync()
+        {
+            var getAllUsers = await _userRepository.GetAllUserAsync();
+
+            return getAllUsers.Select(u => new UserResponseDto(
+            
+                u.Id,
+                u.Name,
+                u.Email,
+                u.CreatedAt,
+                u.UpdatedAt
+            ));
+        }
+
         public async Task<UserResponseDto> GetUserByIdAsync(Guid id)
         {
             var searchById = await _userRepository.GetUserByIdAsync(id);
