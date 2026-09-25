@@ -1,3 +1,4 @@
+using Chamados.Api.Middlewares;
 using FluentValidation;
 using GestaoDeChamados_Application.DTO.User;
 using GestaoDeChamados_Application.Interface;
@@ -34,7 +35,7 @@ if (app.Environment.IsDevelopment())
 
 //Middleware
 
-// --> here you can add custom middleware if needed
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 
 app.UseHttpsRedirection();

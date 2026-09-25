@@ -4,6 +4,7 @@ namespace GestaoDeChamados_Domain.Entity
 {
     public class Ticket : BaseEntity
     {
+
         public string Title { get; private set; } = string.Empty;
         public string Description { get; private set; } = string.Empty;
         public PriorityTicketStatus Priority { get; private set; }
