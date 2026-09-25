@@ -4,7 +4,7 @@ using GestaoDeChamados_Domain.Enum;
 
 namespace GestaoDeChamados_Tests;
 
-public class TicketTests
+public class TicketDomainTests
 {
     [Fact]
     public void UpdateStatus_ShouldThrowInvalidOperationException_WhenTicketIsAlreadyCanceled()
