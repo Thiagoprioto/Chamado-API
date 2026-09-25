@@ -1,4 +1,5 @@
 ﻿using GestaoDeChamados_Application.DTO.Ticket;
+using GestaoDeChamados_Domain.Enum;
 
 namespace GestaoDeChamados_Application.Interface
 {
@@ -8,6 +9,7 @@ namespace GestaoDeChamados_Application.Interface
         Task<IEnumerable<TicketResponseDto>> GetAllTicketsAsync();
         Task<TicketResponseDto> CreateTicketAsync(CreateTicketDto ticket);
         Task<TicketResponseDto> UpdateTicketAsync(Guid id, UpdateTicketDto ticket);
+        Task UpdateTicketStatusAsync(Guid id, TicketsStatus status);
         Task DeleteTicketAsync(Guid id);
     }
 }

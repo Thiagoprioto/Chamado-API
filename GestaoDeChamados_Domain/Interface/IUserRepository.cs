@@ -6,8 +6,9 @@ namespace GestaoDeChamados_Domain.Interface
     public interface IUserRepository
     {
         Task<User> AddUserAsync(User user);
+        Task<IEnumerable<User>> GetAllUserAsync();
         Task<User> GetUserByIdAsync(Guid id);
-        Task<User> UpdateUserAsync(User user);
-        Task<User> DeleteUserAsync(Guid id);
+        Task UpdateUserAsync(User user);
+        Task DeleteUserAsync(User user);
     }
 }

@@ -4,10 +4,10 @@ namespace GestaoDeChamados_Domain.Interface
 {
     public interface ITicketRepository
     {
-        Task<Ticket> GetTicketByIdAsync(Guid id);
+        Task<Ticket?> GetTicketByIdAsync(Guid id);
         Task<IEnumerable<Ticket>> GetAllTicketsAsync();
-        Task<Ticket> CreateTicketAsync(Ticket ticket);
-        Task<Ticket> UpdateTicketAsync(Ticket ticket);
-        Task<Ticket> DeleteTicketAsync(Guid id);
+        Task AddTicketAsync(Ticket ticket);
+        Task UpdateTicketAsync(Ticket ticket);
+        Task DeleteTicketAsync(Ticket ticket);
     }
 }

@@ -29,5 +29,20 @@ namespace GestaoDeChamados_Domain.Entity
             Status = newStatus;
             UpdateTimestamp();
         }
+
+        public void UpdateStatus(TicketsStatus newStatus)
+        {
+            if (Status == TicketsStatus.Canceled)
+            {
+                throw new InvalidOperationException("Não é possível alterar o status de um chamado que já está cancelado.");
+            }
+
+            if (Status == TicketsStatus.Closed && newStatus == TicketsStatus.Open)
+            {
+                throw new InvalidOperationException("Não é possível reabrir um chamado que já foi concluído.");
+            }
+
+            Status = newStatus;
+        }
     }
 }

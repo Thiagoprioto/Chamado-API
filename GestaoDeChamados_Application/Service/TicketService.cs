@@ -1,8 +1,8 @@
-﻿
-using GestaoDeChamados_Application.DTO.Ticket;
+﻿using GestaoDeChamados_Application.DTO.Ticket;
 using GestaoDeChamados_Application.Exceptions;
 using GestaoDeChamados_Application.Interface;
 using GestaoDeChamados_Domain.Entity;
+using GestaoDeChamados_Domain.Enum;
 using GestaoDeChamados_Domain.Interface;
 
 namespace GestaoDeChamados_Application.Service
@@ -19,7 +19,7 @@ namespace GestaoDeChamados_Application.Service
         public async Task<TicketResponseDto> CreateTicketAsync(CreateTicketDto dto)
         {
             var ticket = new Ticket(dto.Title, dto.Description, dto.Priority);
-            await _ticketRepository.CreateTicketAsync(ticket);
+            await _ticketRepository.AddTicketAsync(ticket);
             return new TicketResponseDto(
                 ticket.Id, 
                 ticket.Title, 
@@ -39,7 +39,7 @@ namespace GestaoDeChamados_Application.Service
                 throw new NotFoundException("Chamado não encontrado");
             }
 
-            await _ticketRepository.DeleteTicketAsync(deletedTicket.Id);
+            await _ticketRepository.DeleteTicketAsync(deletedTicket);
         }
 
         public async Task<IEnumerable<TicketResponseDto>> GetAllTicketsAsync()
@@ -96,6 +96,20 @@ namespace GestaoDeChamados_Application.Service
                 existingTicket.CreatedAt,
                 existingTicket.UpdatedAt
             );
+        }
+
+        public async Task UpdateTicketStatusAsync(Guid id, TicketsStatus status)
+        {
+            var ticket = await _ticketRepository.GetTicketByIdAsync(id);
+
+            if (ticket == null)
+            {
+                throw new KeyNotFoundException($"Ticket com o ID {id} não foi encontrado.");
+            }
+
+            ticket.UpdateStatus(status);
+
+            await _ticketRepository.UpdateTicketAsync(ticket);
         }
     }
 }
